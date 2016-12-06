@@ -1,57 +1,0 @@
-Dependencies for Project 'EGRE-346_Final_Project', Target 'STM32L476VG': (DO NOT MODIFY !)
-F (..\include\c\stm32l476xx.h)(0x5846E62D)()
-F (..\include\c\RobotState.h)(0x5846E62D)()
-F (..\include\c\StepperMotor.h)(0x58473077)()
-F (..\include\c\MecanumDriveBase.h)(0x5846E62D)()
-F (..\include\c\DriveBase.h)(0x58473077)()
-F (..\include\c\Gpio.h)(0x5846E62D)()
-F (..\src\main.c)(0x58473077)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -I ..\include\c -I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32L476xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\include\c\DriveBase.h)(0x58473077)
-I (..\include\c\stm32l476xx.h)(0x5846E62D)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56265FCC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EE6E6)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include\system_stm32l4xx.h)(0x56D449DC)
-I (..\include\c\Gpio.h)(0x5846E62D)
-I (..\include\c\StepperMotor.h)(0x58473077)
-F (..\src\RobotState.c)(0x5846E62D)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -I ..\include\c -I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32L476xx-o .\objects\robotstate.o --omf_browse .\objects\robotstate.crf --depend .\objects\robotstate.d)
-F (..\src\StepperMotor.c)(0x58473077)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -I ..\include\c -I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32L476xx-o .\objects\steppermotor.o --omf_browse .\objects\steppermotor.crf --depend .\objects\steppermotor.d)
-I (..\include\c\StepperMotor.h)(0x58473077)
-I (..\include\c\stm32l476xx.h)(0x5846E62D)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56265FCC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EE6E6)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include\system_stm32l4xx.h)(0x56D449DC)
-I (..\include\c\Gpio.h)(0x5846E62D)
-F (..\src\MecanumDriveBase.c)(0x5846E62D)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -I ..\include\c -I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32L476xx-o .\objects\mecanumdrivebase.o --omf_browse .\objects\mecanumdrivebase.crf --depend .\objects\mecanumdrivebase.d)
-F (..\src\DriveBase.c)(0x58473077)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -I ..\include\c -I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32L476xx-o .\objects\drivebase.o --omf_browse .\objects\drivebase.crf --depend .\objects\drivebase.d)
-I (..\include\c\DriveBase.h)(0x58473077)
-I (..\include\c\stm32l476xx.h)(0x5846E62D)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56265FCC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EE6E6)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include\system_stm32l4xx.h)(0x56D449DC)
-I (..\include\c\Gpio.h)(0x5846E62D)
-I (..\include\c\StepperMotor.h)(0x58473077)
-F (..\src\Gpio.c)(0x58473077)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -I ..\include\c -I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32L476xx-o .\objects\gpio.o --omf_browse .\objects\gpio.crf --depend .\objects\gpio.d)
-I (..\include\c\Gpio.h)(0x5846E62D)
-I (..\include\c\stm32l476xx.h)(0x5846E62D)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56265FCC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EE6E6)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56264C10)
-I (C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include\system_stm32l4xx.h)(0x56D449DC)
-F (..\include\asm\stm32l476xx_constants.s)(0x5846E62D)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 521" --pd "STM32L476xx SETA 1"--list .\listings\stm32l476xx_constants.lst --xref -o .\objects\stm32l476xx_constants.o --depend .\objects\stm32l476xx_constants.d)
-F (..\include\asm\startup_stm32l476xx.s)(0x5846E62D)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 521" --pd "STM32L476xx SETA 1"--list .\listings\startup_stm32l476xx.lst --xref -o .\objects\startup_stm32l476xx.o --depend .\objects\startup_stm32l476xx.d)
-F (..\include\asm\core_cm4_constants.s)(0x5846E62D)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Users\peter\Documents\GitHub\EGRE-364_Final-Project\project\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 521" --pd "STM32L476xx SETA 1"--list .\listings\core_cm4_constants.lst --xref -o .\objects\core_cm4_constants.o --depend .\objects\core_cm4_constants.d)

@@ -7,7 +7,22 @@
 *           contains the functions to control the stepper motor structure.
 */
 
-#include "StepperMotor.h"
+#ifndef STEPPER_MOTOR_H
+#define STEPPER_MOTOR_H
+
+#include "stm32l476xx.h"
+#include "Gpio.h"
+
+/**
+* Stepper motor structure.
+*
+* This structure contains the 4 pins (wires) used to 
+* connect to the physical stepper motor
+*/
+typedef struct {
+    gpio_t* stepPin;  // Pin used to denote if the motor should step
+    gpio_t* directionPin;  // Pin used to denote the direction of the step
+} stepperMotor_t;
 
 /**
  * Intiailze all the members of the stepperMotor_t structure
@@ -18,12 +33,9 @@
  * @param _directionPin the pin used for the direction input on the motor
  *        controller
  */
-void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _port, 
-  uint8_t _stepPin, uint8_t _directionPin) {
-  initGpio(_stepperMotor->directionPin, _port, _directionPin);
-  initGpio(_stepperMotor->stepPin, _port, _stepPin);
-}
-  
+void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _port,
+  uint8_t _stepPin, uint8_t _directionPin);
+
 /**
  * Set the output of the stepper motor.
  * Controls whether or not the motor will rotate.
@@ -32,8 +44,6 @@ void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _port,
  * @param _step whether or not the moter should step (0 = false, 1 = true)
  * @param _direction the direction of the step (0 = , 1 = )
  */
-void set(stepperMotor_t* _stepperMotor, uint8_t _step, uint8_t _direction) {
-  writePin(_stepperMotor->directionPin->port, _stepperMotor->directionPin->pin, 
-    _direction);
-  writePin(_stepperMotor->stepPin->port, _stepperMotor->stepPin->pin, _step);
-}
+void set(stepperMotor_t* _stepperMotor, uint8_t _step, uint8_t _direction);
+
+#endif

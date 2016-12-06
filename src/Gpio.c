@@ -1,17 +1,31 @@
 /**
-* @file            GpioConfig.c
-* @author       Adam Morrissett
-* @version      v1.0
-* @date          27 Sept. 2016
-* @brief          This file is used to call starup functions
-*                    Because the clocks and modes for each pin
-*                    group has to be configured for each project,
-*                    it was decided it would be better to make a
-*                    faster and more reliable way to do this.
+* @file     Gpio.c
+* @author   Adam Morrissett
+* @version  v1.0
+* @date     27 Sept. 2016
+* @brief    This file is used to call starup functions
+*           Because the clocks and modes for each pin
+*           group has to be configured for each project,
+*           it was decided it would be better to make a
+*           faster and more reliable way to do this.
 */
 
-#include "GpioConfig.h"
+#include "Gpio.h"
 #include <stdint.h>
+
+/**
+ * Initializes the gpio structure.
+ *
+ * @param _gpioStructure the desired gpio_t structure to initialize
+ * @param _gpioPort the desired port of the gpio structure
+ * @param _gpioPin the desired pin number of the gpio structure
+ */
+void initGpio(gpio_t* _gpioStructure, GPIO_TypeDef * _gpioPort, 
+  uint8_t _pinNumber) {
+  // Assign members
+  _gpioStructure->port = _gpioPort;
+  _gpioStructure->pin = _pinNumber;
+}
 
 void enableClock(uint32_t _gpioGroup) {
 	RCC->AHB2ENR |= _gpioGroup;

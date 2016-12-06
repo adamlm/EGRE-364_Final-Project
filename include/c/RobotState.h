@@ -1,12 +1,16 @@
 /**
-* @file            RobotState.h
-* @author       Adam Morrissett
-* @version      v1.0
-* @date          28 Nov. 2016
-* @brief          This file contains the functions to set
-*                    and get the current state of the robot.
+* @file     RobotState.h
+* @author   Adam Morrissett
+* @version  v1.0
+* @date     28 Nov. 2016
+* @brief    This file contains the functions to set
+*           and get the current state of the robot.
 */
 
+/**
+ * Enumeration for the robot states.
+ *
+ */
 public enum robotState {
     INIT = 0,
     MAZE = 1,

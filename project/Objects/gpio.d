@@ -1,0 +1,10 @@
+.\objects\gpio.o: ..\src\Gpio.c
+.\objects\gpio.o: ..\include\c\Gpio.h
+.\objects\gpio.o: ..\include\c\stm32l476xx.h
+.\objects\gpio.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\objects\gpio.o: Z:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gpio.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\gpio.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\gpio.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\gpio.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\objects\gpio.o: Z:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include\system_stm32l4xx.h

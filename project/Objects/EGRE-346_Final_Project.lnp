@@ -1,0 +1,14 @@
+--cpu Cortex-M4.fp --branchpatch=sdcomp-29491-629360
+".\objects\main.o"
+".\objects\robotstate.o"
+".\objects\steppermotor.o"
+".\objects\mecanumdrivebase.o"
+".\objects\drivebase.o"
+".\objects\gpio.o"
+".\objects\stm32l476xx_constants.o"
+".\objects\startup_stm32l476xx.o"
+".\objects\core_cm4_constants.o"
+--strict --scatter ".\Objects\EGRE-346_Final_Project.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\EGRE-346_Final_Project.map" -o .\Objects\EGRE-346_Final_Project.axf

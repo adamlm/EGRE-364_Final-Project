@@ -48,3 +48,6 @@ Temporary Items
 
 #Directories for component models
 model
+
+#TMP Files
+*.TMP

@@ -1,17 +1,17 @@
 /**
-* @file            GpioConfig.h
-* @author       Adam Morrissett
-* @version      v1.0
-* @date          27 Sept. 2016
-* @brief          This file is used to call starup functions
-*                    Because the clocks and modes for each pin
-*                    group has to be configured for each project,
-*                    it was decided it would be better to make a
-*                    faster and more reliable way to do this.
+* @file     Gpio.h
+* @author   Adam Morrissett
+* @version  v1.0
+* @date     27 Sept. 2016
+* @brief    This file is used to call startup functions
+*           Because the clocks and modes for each pin
+*           group has to be configured for each project,
+*           it was decided it would be better to make a
+*           faster and more reliable way to do this.
 */
 
-#ifndef GPIO_CONFIG_H
-#define GPIO_CONFIG_H
+#ifndef GPIO_H
+#define GPIO_H
 
 #include "stm32l476xx.h"
 
@@ -22,6 +22,15 @@
 
 #define TWO_BIT_RESET 3	// Used to reset 2-bit wide settings
 #define ONE_BIT_RESET 1	// Used to reset 1-bit wide settings
+
+/**
+ * Structure for the GPIO. This structure is similar to the GPIO_TypeDef, but
+ * this structure contains a GPIO_TypeDef and a pin number. 
+ */
+typedef struct {
+  GPIO_TypeDef* port;  // Pin number within the GPIO port; used for shifting
+  uint8_t pin;        // GPIO port (A, B, C, etc.)
+} gpio_t;
 
 /**
 * Enumeration for port modes. 
@@ -70,6 +79,16 @@ typedef enum {NO_PUP = 0, \
 							PULL_UP = 1, \
 							PULL_DOWN = 2} pullUpPullDown;
 
+/**
+ * Initializes the gpio structure.
+ *
+ * @param _gpioStructure the desired gpio_t structure to initialize
+ * @param _gpioPort the desired port of the gpio structure
+ * @param _gpioPin the desired pin number of the gpio structure
+ */
+void initGpio(gpio_t* _gpioStructure, GPIO_TypeDef * _gpioPort, 
+  uint8_t _pinNumber);
+              
 /**
 * Enable the clock of a specified GPIO group.
 * 
@@ -121,10 +140,22 @@ void setOSpeed(GPIO_TypeDef *_gpioGroup, uint32_t _pinNum, outputSpeed _value);
 */
 void setPupd(GPIO_TypeDef *_gpioGroup, uint32_t _pinNum, pullUpPullDown _value);
 	
-	
-uint8_t readPin (GPIO_TypeDef *_gpioGroup, uint8_t _pinNum);
+/**
+ * Reads the IDR value of the specified pin.
+ * 
+ * @param _gpioGroup pointer to the port of the specified pin
+ * @param _pinNum the number of the specified pin
+ * @return the value of the IDR of the specified pin
+ */
+uint8_t readPin(GPIO_TypeDef *_gpioGroup, uint8_t _pinNum);
 
-
-void writePin (GPIO_TypeDef *_gpioGroup, uint8_t _pinNum, uint8_t _value);
+/**
+ * Writes a value to the ODR of the specified pin.
+ *
+ * @param _gpioGroup pointer to the GPIO port of the specified pin
+ * @param _pinNum the number of the specified pin
+ * @param _value the value to write to the specified pin's ODR
+ */
+void writePin(GPIO_TypeDef *_gpioGroup, uint8_t _pinNum, uint8_t _value);
 	
 #endif

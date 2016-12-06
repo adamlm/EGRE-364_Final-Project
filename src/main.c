@@ -1,17 +1,40 @@
 /**
-* @file            Main.c
-* @author       Adam Morrissett
-* @version      v1.0
-* @date          27 Sept. 2016
-* @brief          This file is used to call starup functions
-*                    Because the clocks and modes for each pin
-*                    group has to be configured for each project,
-*                    it was decided it would be better to make a
-*                    faster and more reliable way to do this.
+* @file     Main.c
+* @author   Adam Morrissett
+* @version  v1.0
+* @date     5 Dec. 2016
+* @brief    This file is the main entry point into the robot code.
+*           All startup functions are called from here, and all robot operations
+*           are initiated from here.
 */
 
-#include stm32l476xx.h"
+#include "stm32l476xx.h"
+#include "DriveBase.h"
 
-void main(void) {
-    
+// Function prototypes
+static void robotInit(void);
+
+// Declarations
+static driveBase_t driveBase;  // The drive base of the robot
+//  distanceSensor_t distanceSensor;  // The distance sensor on the robot
+
+
+/**
+ * This is the main entry point into the robot code.
+ * All initiations are robot actions are originally called from this method.
+ *
+ */
+int main(void) {   
+  robotInit();  // Initialize the robot
+  
+  return 0;
+}
+
+/**
+ * This is the initiation method.
+ * All robot components are initialized here. 
+ */
+static void robotInit(void) {
+  initDriveBase(&driveBase);  // Initialize the drive base
+// initiDistanceSensor(&distanceSensor);  // Initialize the distance sensor    
 }

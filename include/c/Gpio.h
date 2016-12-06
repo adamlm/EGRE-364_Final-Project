@@ -28,8 +28,8 @@
  * this structure contains a GPIO_TypeDef and a pin number. 
  */
 typedef struct {
-  GPIO_TypeDef* port;  // Pin number within the GPIO port; used for shifting
-  uint8_t pin;        // GPIO port (A, B, C, etc.)
+  GPIO_TypeDef* port; // GPIO port (A, B, C, etc.)  
+  uint8_t pin;        // Pin number within the GPIO port; used for shifting
 } gpio_t;
 
 /**

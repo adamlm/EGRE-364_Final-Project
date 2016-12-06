@@ -22,7 +22,7 @@
  */
 void initGpio(gpio_t* _gpioStructure, GPIO_TypeDef * _gpioPort, 
   uint8_t _pinNumber) {
-  // Assign members
+  // Assign members    
   _gpioStructure->port = _gpioPort;
   _gpioStructure->pin = _pinNumber;
 }

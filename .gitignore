@@ -51,3 +51,9 @@ model
 
 #TMP Files
 *.TMP
+
+# User settings files
+*.uvguix.*
+
+# Build files (Object) directory
+project/Objects

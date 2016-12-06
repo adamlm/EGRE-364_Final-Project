@@ -1,11 +1,1 @@
 .\objects\steppermotor.o: ..\src\StepperMotor.c
-.\objects\steppermotor.o: ..\include\c\StepperMotor.h
-.\objects\steppermotor.o: ..\include\c\stm32l476xx.h
-.\objects\steppermotor.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
-.\objects\steppermotor.o: Z:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\steppermotor.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
-.\objects\steppermotor.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
-.\objects\steppermotor.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
-.\objects\steppermotor.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
-.\objects\steppermotor.o: Z:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Device\Include\system_stm32l4xx.h
-.\objects\steppermotor.o: ..\include\c\Gpio.h

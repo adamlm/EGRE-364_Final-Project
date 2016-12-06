@@ -7,10 +7,9 @@
 
   <Targets>
     <Target>
-      <TargetName>STM32L476VG</TargetName>
+      <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060300::V5.06 update 3 (build 300)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32L476VGTx</Device>
@@ -47,14 +46,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Objects\</OutputDirectory>
+          <OutputDirectory>.\</OutputDirectory>
           <OutputName>EGRE-346_Final_Project</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>1</CreateHexFile>
+          <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Listings\</ListingPath>
+          <ListingPath>.\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -125,6 +124,47 @@
             <HexOffset>0</HexOffset>
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
+          <Simulator>
+            <UseSimulator>0</UseSimulator>
+            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
+            <RunToMain>1</RunToMain>
+            <RestoreBreakpoints>1</RestoreBreakpoints>
+            <RestoreWatchpoints>1</RestoreWatchpoints>
+            <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
+            <RestoreFunctions>1</RestoreFunctions>
+            <RestoreToolbox>1</RestoreToolbox>
+            <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
+            <RestoreSysVw>1</RestoreSysVw>
+          </Simulator>
+          <Target>
+            <UseTarget>1</UseTarget>
+            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
+            <RunToMain>1</RunToMain>
+            <RestoreBreakpoints>1</RestoreBreakpoints>
+            <RestoreWatchpoints>1</RestoreWatchpoints>
+            <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
+            <RestoreFunctions>0</RestoreFunctions>
+            <RestoreToolbox>1</RestoreToolbox>
+            <RestoreTracepoints>1</RestoreTracepoints>
+            <RestoreSysVw>1</RestoreSysVw>
+          </Target>
+          <RunDebugAfterBuild>0</RunDebugAfterBuild>
+          <TargetSelection>0</TargetSelection>
+          <SimDlls>
+            <CpuDll></CpuDll>
+            <CpuDllArguments></CpuDllArguments>
+            <PeripheralDll></PeripheralDll>
+            <PeripheralDllArguments></PeripheralDllArguments>
+            <InitializationFile></InitializationFile>
+          </SimDlls>
+          <TargetDlls>
+            <CpuDll></CpuDll>
+            <CpuDllArguments></CpuDllArguments>
+            <PeripheralDll></PeripheralDll>
+            <PeripheralDllArguments></PeripheralDllArguments>
+            <InitializationFile></InitializationFile>
+            <Driver>BIN\UL2CM3.DLL</Driver>
+          </TargetDlls>
         </DebugOption>
         <Utilities>
           <Flash1>
@@ -256,17 +296,17 @@
                 <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
-                <Type>1</Type>
+                <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
-                <Type>1</Type>
+                <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT2>
               <OCR_RVCT3>
-                <Type>1</Type>
+                <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT3>
@@ -276,7 +316,7 @@
                 <Size>0x100000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
-                <Type>1</Type>
+                <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT5>
@@ -335,7 +375,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include;..\include\c</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -357,7 +397,7 @@
             </VariousControls>
           </Aads>
           <LDads>
-            <umfTarg>1</umfTarg>
+            <umfTarg>0</umfTarg>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <noStLib>0</noStLib>
@@ -377,94 +417,7 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>include</GroupName>
-          <Files>
-            <File>
-              <FileName>stm32l476xx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\c\stm32l476xx.h</FilePath>
-            </File>
-            <File>
-              <FileName>RobotState.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\c\RobotState.h</FilePath>
-            </File>
-            <File>
-              <FileName>StepperMotor.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\c\StepperMotor.h</FilePath>
-            </File>
-            <File>
-              <FileName>MecanumDriveBase.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\c\MecanumDriveBase.h</FilePath>
-            </File>
-            <File>
-              <FileName>DriveBase.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\c\DriveBase.h</FilePath>
-            </File>
-            <File>
-              <FileName>Gpio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\include\c\Gpio.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>src</GroupName>
-          <Files>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>RobotState.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\RobotState.c</FilePath>
-            </File>
-            <File>
-              <FileName>StepperMotor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\StepperMotor.c</FilePath>
-            </File>
-            <File>
-              <FileName>MecanumDriveBase.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\MecanumDriveBase.c</FilePath>
-            </File>
-            <File>
-              <FileName>DriveBase.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\DriveBase.c</FilePath>
-            </File>
-            <File>
-              <FileName>Gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\Gpio.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>asm</GroupName>
-          <Files>
-            <File>
-              <FileName>stm32l476xx_constants.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\include\asm\stm32l476xx_constants.s</FilePath>
-            </File>
-            <File>
-              <FileName>startup_stm32l476xx.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\include\asm\startup_stm32l476xx.s</FilePath>
-            </File>
-            <File>
-              <FileName>core_cm4_constants.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\include\asm\core_cm4_constants.s</FilePath>
-            </File>
-          </Files>
+          <GroupName>Source Group 1</GroupName>
         </Group>
       </Groups>
     </Target>

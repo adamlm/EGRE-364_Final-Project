@@ -20,15 +20,8 @@
  */
 void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _port, 
   uint8_t _stepPin, uint8_t _directionPin) {
-  initGpio(&(_stepperMotor->directionPin), _port, _directionPin);
-  initGpio(&(_stepperMotor->stepPin), _port, _stepPin);
-    
-  setMode(_stepperMotor->directionPin.port, _stepperMotor->directionPin.pin,
-    OUTPUT);
-  setOType(_stepperMotor->directionPin.port, _stepperMotor->directionPin.pin,
-    PUSH_PULL);
-  setOSpeed(_stepperMotor->directionPin.port, _stepperMotor->directionPin.pin,
-    VERY_HIGH_SPEED);
+  initGpio(_stepperMotor->directionPin, _port, _directionPin);
+  initGpio(_stepperMotor->stepPin, _port, _stepPin);
 }
   
 /**
@@ -40,7 +33,7 @@ void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _port,
  * @param _direction the direction of the step (0 = , 1 = )
  */
 void set(stepperMotor_t* _stepperMotor, uint8_t _step, uint8_t _direction) {
-  writePin(_stepperMotor->directionPin.port, _stepperMotor->directionPin.pin, 
+  writePin(_stepperMotor->directionPin->port, _stepperMotor->directionPin->pin, 
     _direction);
-  writePin(_stepperMotor->stepPin.port, _stepperMotor->stepPin.pin, _step);
+  writePin(_stepperMotor->stepPin->port, _stepperMotor->stepPin->pin, _step);
 }

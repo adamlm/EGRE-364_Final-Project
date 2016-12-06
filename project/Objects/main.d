@@ -1,5 +1,4 @@
 .\objects\main.o: ..\src\main.c
-.\objects\main.o: Z:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: ..\include\c\stm32l476xx.h
 .\objects\main.o: Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
 .\objects\main.o: Z:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

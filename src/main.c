@@ -8,15 +8,11 @@
 *           are initiated from here.
 */
 
-#include <stdlib.h>
 #include "stm32l476xx.h"
 #include "DriveBase.h"
 
-#include "Gpio.h"
-
 // Function prototypes
 static void robotInit(void);
-static void periphClockInit(void);
 
 // Declarations
 static driveBase_t driveBase;  // The drive base of the robot
@@ -28,7 +24,7 @@ static driveBase_t driveBase;  // The drive base of the robot
  * All initiations are robot actions are originally called from this method.
  *
  */
-int main(void) {  
+int main(void) {   
   robotInit();  // Initialize the robot
   
   return 0;
@@ -39,16 +35,6 @@ int main(void) {
  * All robot components are initialized here. 
  */
 static void robotInit(void) {
-  periphClockInit();  // Initialize the peripheral clocks
   initDriveBase(&driveBase);  // Initialize the drive base
 // initiDistanceSensor(&distanceSensor);  // Initialize the distance sensor    
-}
-
-/**
- * Initializes all of the clocks of the peripherals
- */
-static void periphClockInit(void) {
-  RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN | RCC_AHB2ENR_GPIOBEN |
-    RCC_AHB2ENR_GPIOCEN | RCC_AHB2ENR_GPIODEN | RCC_AHB2ENR_GPIOEEN | 
-    RCC_AHB2ENR_GPIOFEN | RCC_AHB2ENR_GPIOGEN | RCC_AHB2ENR_GPIOHEN;
 }

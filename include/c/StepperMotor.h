@@ -20,8 +20,8 @@
 * connect to the physical stepper motor
 */
 typedef struct {
-    gpio_t stepPin;  // Pin used to denote if the motor should step
-    gpio_t directionPin;  // Pin used to denote the direction of the step
+    gpio_t* stepPin;  // Pin used to denote if the motor should step
+    gpio_t* directionPin;  // Pin used to denote the direction of the step
 } stepperMotor_t;
 
 /**

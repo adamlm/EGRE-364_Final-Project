@@ -16,9 +16,6 @@
  * @param _driveBase pionter to the drive base to initialize
  */
 void initDriveBase(driveBase_t* _driveBase) {
-  GPIOB->MODER &= ~(0xffff);
-  initStepperMotor(&(_driveBase->leftMotor), GPIOB, 1, 2);
-  initStepperMotor(&(_driveBase->rightMotor), GPIOB, 3, 4);
-  
-  // NEED TO SETUP THE TIMER
+  initStepperMotor(_driveBase->leftMotor, GPIOB, 1, 2);
+  initStepperMotor(_driveBase->leftMotor, GPIOB, 3, 4);
 }

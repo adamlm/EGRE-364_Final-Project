@@ -10,14 +10,9 @@
 
 #include "DriveBase.h"
 
-/**
- * Initializes all of the members of the driveBase_t structure.
- *
- * @param _driveBase pionter to the drive base to initialize
- */
 void initDriveBase(driveBase_t* _driveBase) {  
-  initStepperMotor(&(_driveBase->leftMotor), GPIOB, 1, 2);
-  initStepperMotor(&(_driveBase->rightMotor), GPIOB, 3, 4);
+  initStepperMotor(&(_driveBase->leftMotor), GPIOB, GPIOB, 1, 2);
+  initStepperMotor(&(_driveBase->rightMotor), GPIOB, GPIOB, 3, 4);
   
   // NEED TO SETUP THE TIMER
 }

@@ -28,13 +28,14 @@ typedef struct {
  * Intiailze all the members of the stepperMotor_t structure
  *
  * @param _stepperMotor pointer to the stepper motor to initialize
- * @param _port GPIO port that the pins belong to
+ * @param _stepPort GPIO port that the step pin belong to
+ * @param _directionPort GPIO port that the direction pin belongs to
  * @param _stepPin the pin used for the step input on the motor controller
  * @param _directionPin the pin used for the direction input on the motor
  *        controller
  */
-void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _port,
-  uint8_t _stepPin, uint8_t _directionPin);
+void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _stepPort,
+  GPIO_TypeDef* _directionPort, uint8_t _stepPin, uint8_t _directionPin);
 
 /**
  * Set the output of the stepper motor.

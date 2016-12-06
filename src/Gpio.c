@@ -13,13 +13,6 @@
 #include "Gpio.h"
 #include <stdint.h>
 
-/**
- * Initializes the gpio structure.
- *
- * @param _gpioStructure the desired gpio_t structure to initialize
- * @param _gpioPort the desired port of the gpio structure
- * @param _gpioPin the desired pin number of the gpio structure
- */
 void initGpio(gpio_t* _gpioStructure, GPIO_TypeDef * _gpioPort, 
   uint8_t _pinNumber) {
   // Assign members    

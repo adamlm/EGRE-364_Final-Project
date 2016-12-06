@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\EGRE-346_Final_Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\EGRE-346_Final_Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Dec 06 15:52:44 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Dec 06 16:43:36 2016
 <BR><P>
 <H3>Maximum Stack Usage =         60 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -619,19 +619,19 @@ Global Symbols
 
 <P><STRONG><a name="[a3]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[72]"></a>initDriveBase</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, drivebase.o(i.initDriveBase))
+<P><STRONG><a name="[72]"></a>initDriveBase</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, drivebase.o(i.initDriveBase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = initDriveBase &rArr; initStepperMotor &rArr; setOSpeed
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initStepperMotor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotInit
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotInit
 </UL>
 
 <P><STRONG><a name="[74]"></a>initGpio</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gpio.o(i.initGpio))
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initStepperMotor
 </UL>
 
-<P><STRONG><a name="[73]"></a>initStepperMotor</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, steppermotor.o(i.initStepperMotor))
+<P><STRONG><a name="[73]"></a>initStepperMotor</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, steppermotor.o(i.initStepperMotor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = initStepperMotor &rArr; setOSpeed
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setOType
@@ -642,11 +642,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initDriveBase
 </UL>
 
-<P><STRONG><a name="[69]"></a>main</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[69]"></a>main</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = main &rArr; robotInit &rArr; initDriveBase &rArr; initStepperMotor &rArr; setOSpeed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotInit
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;periphClockInit
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -680,16 +679,15 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[78]"></a>periphClockInit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(i.periphClockInit))
-<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotInit
+<P><STRONG><a name="[79]"></a>periphClockInit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(i.periphClockInit))
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;robotInit
 </UL>
 
-<P><STRONG><a name="[79]"></a>robotInit</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, main.o(i.robotInit))
+<P><STRONG><a name="[78]"></a>robotInit</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, main.o(i.robotInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = robotInit &rArr; initDriveBase &rArr; initStepperMotor &rArr; setOSpeed
 </UL>
 <BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initDriveBase
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;periphClockInit
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;periphClockInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>

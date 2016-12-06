@@ -57,3 +57,6 @@ model
 
 # Build files (Object) directory
 project/Objects
+project\Objects
+./project/Objects
+.\project\Objects

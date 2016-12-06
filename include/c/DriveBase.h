@@ -6,6 +6,8 @@
 * @brief    This file contains the drive base structure and corresponding
 *           functions to control it. This is the structure that is 
 *           responsible for making the robot drive.
+* @TODO:    Implement a way to disable the back two steppers so there is
+*           less power consumption
 */
 
 #ifndef DRIVE_BASE_H

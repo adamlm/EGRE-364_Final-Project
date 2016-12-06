@@ -2,6 +2,8 @@
 #include <stdint.h"
 
 uint8_t reflectance_read(void) {
+	//bits 3 downto 0 correspond to the leftmost downto the rightmost sensor
+	
 	
 		// Counters for the individual reflectance sensors
 	int32_t counter_1 = 0;

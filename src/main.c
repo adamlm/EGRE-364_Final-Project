@@ -8,11 +8,8 @@
 *           are initiated from here.
 */
 
-#include <stdlib.h>
-#include "stm32l476xx.h"
 #include "DriveBase.h"
-
-#include "Gpio.h"
+#include "stm32l476xx.h"
 
 // Function prototypes
 static void robotInit(void);

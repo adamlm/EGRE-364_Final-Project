@@ -29,6 +29,13 @@ void initStepperMotor(stepperMotor_t* _stepperMotor, GPIO_TypeDef * _port,
     PUSH_PULL);
   setOSpeed(_stepperMotor->directionPin.port, _stepperMotor->directionPin.pin,
     VERY_HIGH_SPEED);
+    
+  setMode(_stepperMotor->stepPin.port, _stepperMotor->stepPin.pin,
+    OUTPUT);
+  setOType(_stepperMotor->stepPin.port, _stepperMotor->stepPin.pin,
+    PUSH_PULL);
+  setOSpeed(_stepperMotor->stepPin.port, _stepperMotor->stepPin.pin,
+    VERY_HIGH_SPEED);
 }
   
 /**

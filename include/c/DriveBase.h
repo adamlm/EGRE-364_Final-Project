@@ -22,8 +22,8 @@
  * to drive the robot. 
  */
 typedef struct {
-  stepperMotor_t* leftMotor;   // The front right motor on the robot
-  stepperMotor_t* rightMotor;  // The front left motor on the robot
+  stepperMotor_t leftMotor;   // The front right motor on the robot
+  stepperMotor_t rightMotor;  // The front left motor on the robot
   TIM_TypeDef syncTimer;      // Timer to synchronize movement of motors
 } driveBase_t;
 

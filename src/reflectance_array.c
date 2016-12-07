@@ -1,5 +1,5 @@
 #include "Gpio.h"
-#include <stdint.h"
+#include <stdint.h>
 
 uint8_t reflectance_read(void) {
 	//bits 3 downto 0 correspond to the leftmost downto the rightmost sensor
@@ -22,7 +22,7 @@ uint8_t reflectance_read(void) {
 	const int32_t common_threshold = 0x60;
 	const uint32_t timeout = 10000;
 	
-	// Read reflectance sensor 1
+		// Read reflectance sensor 1
 		setMode(GPIOE, 10, OUTPUT);	// Set GPIOB pin 2 to output	mode
 		writePin(GPIOE, 10, 1);			// Set GPIOB pin 2 output to high (1)
 		delay(2);									// Wait 10 ms
@@ -39,14 +39,16 @@ uint8_t reflectance_read(void) {
 		}
 		
 		counter_1 = 0;	// Reset the counter to 0		
+		
+		counter_2 = 0;	// Reset the counter to 0		
 	
 		// Read reflectance sensor 2
-		setMode(GPIOE, 11, OUTPUT);	// Set GPIOB pin 2 to output	mode
-		writePin(GPIOE, 11, 1);			// Set GPIOB pin 2 output to high (1)
+		setMode(GPIOE, 14, OUTPUT);	// Set GPIOB pin 2 to output	mode
+		writePin(GPIOE, 14, 1);			// Set GPIOB pin 2 output to high (1)
 		delay(2);									// Wait 10 ms
 		
-		setMode(GPIOE, 11, INPUT);		// Set GPIOB pin 2 to input mode
-		while (GPIOE->IDR & 1<<11 && counter_2<timeout) {
+		setMode(GPIOE, 14, INPUT);		// Set GPIOB pin 2 to input mode
+		while (GPIOE->IDR & 1<<14 && counter_2<timeout) {
 			counter_2++;							// Count up until GPIOB pin 2's IDR is low (0)
 		}
 		
@@ -59,6 +61,7 @@ uint8_t reflectance_read(void) {
 		counter_2 = 0;	// Reset the counter to 0		
 		
 		// Read reflectance sensor 3
+		delay(1);
 		setMode(GPIOE, 12, OUTPUT);	// Set GPIOB pin 2 to output	mode
 		writePin(GPIOE, 12, 1);			// Set GPIOB pin 2 output to high (1)
 		delay(2);									// Wait 10 ms
@@ -77,6 +80,7 @@ uint8_t reflectance_read(void) {
 		counter_3 = 0;	// Reset the counter to 0		
 		
 		// Read reflectance sensor 4
+		delay(1);
 		setMode(GPIOE, 13, OUTPUT);	// Set GPIOB pin 2 to output	mode
 		writePin(GPIOE, 13, 1);			// Set GPIOB pin 2 output to high (1)
 		delay(2);									// Wait 10 ms
@@ -92,8 +96,10 @@ uint8_t reflectance_read(void) {
 			reflectance_4 = 0;	// Object is black
 		}
 		
-		return (uint8_t) ((reflectance_1 & 1) << 3) | ((reflectance_2 & 1) << 2)
-									| ((reflectance_3 & 1) << 1) | (reflectance_4 & 1);
+		counter_4 = 0;	// Reset the counter to 0		
+		
+		return (uint8_t) ((reflectance_1 & 1) << 3) | ((reflectance_3 & 1) << 2)
+									| ((reflectance_4 & 1) << 1) | (reflectance_2 & 1);
 		
 }
 

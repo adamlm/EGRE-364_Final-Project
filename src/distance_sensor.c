@@ -6,6 +6,8 @@ void distance_sensor_init(void) {
 }
 
 uint16_t distance_read(void) {
+	//returns distance in mm;
+	
 	uint32_t sample;
 	
 		ADC1->CR |= ADC_CR_ADSTART;														// Start the ADC conversion sequence

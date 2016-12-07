@@ -18,6 +18,8 @@ void initDriveBase(driveBase_t* _driveBase) {
   initStepperMotor(&(_driveBase->leftMotor), GPIOC, GPIOB, 5, 1);
   initStepperMotor(&(_driveBase->rightMotor), GPIOB, GPIOB, 13, 15);
   
+  driveBase = _driveBase;
+  
   initSyncTimer(_driveBase);
 }
 

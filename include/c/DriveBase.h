@@ -26,7 +26,7 @@
 typedef struct {
   stepperMotor_t leftMotor;   // The front right motor on the robot
   stepperMotor_t rightMotor;  // The front left motor on the robot
-  TIM_TypeDef syncTimer;      // Timer to synchronize movement of motors
+  TIM_TypeDef* syncTimer;      // Timer to synchronize movement of motors
 } driveBase_t;
 
 
@@ -37,4 +37,12 @@ typedef struct {
  */
 void initDriveBase(driveBase_t* _driveBase);
 
+/**
+ * Initializes the motor sync timer.
+ * The timer used for the drive base is hard coded, so any changes would
+ * have to be made here.
+ *
+ * @param _driveBase the drive base of the desired syncTimer
+ */
+static void initSyncTimer(driveBase_t* _driveBase);
 #endif

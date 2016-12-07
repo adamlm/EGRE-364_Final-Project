@@ -29,8 +29,9 @@ static void initSyncTimer(driveBase_t* _driveBase) {
   _driveBase->syncTimer->ARR = 1000 - 1;  // Overrun event will trigger 1 kHz   
   
   // Enable interrupt for TIM4 and set its priority
-  NVIC->ISER[0] = 1 << TIM4_IRQn;
-  NVIC->IP[TIM4_IRQn] = 0xFF;  // lower number means higher priority
+  NVIC_EnableIRQ(TIM4_IRQn);
+  NVIC_SetPriority(TIM4_IRQn,1);
+  _driveBase->syncTimer->DIER |= TIM_DIER_UIE;
   
   // Enable the syncTimer
   _driveBase->syncTimer->CR1 = TIM_CR1_CEN;

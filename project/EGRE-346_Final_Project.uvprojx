@@ -419,6 +419,16 @@
               <FileType>5</FileType>
               <FilePath>..\include\c\SysTimer.h</FilePath>
             </File>
+            <File>
+              <FileName>distance_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\c\distance_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>reflectance_array.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\c\reflectance_array.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -29,6 +29,7 @@ typedef struct {
   TIM_TypeDef* syncTimer;      // Timer to synchronize movement of motors
 } driveBase_t;
 
+static driveBase_t* driveBase;
 
 /**
  * Initializes all of the members of the driveBase_t structure.

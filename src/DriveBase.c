@@ -21,12 +21,24 @@ static void initSyncTimer(driveBase_t* _driveBase) {
   // Init the timer
   RCC->APB1ENR1 |= RCC_APB1ENR1_TIM4EN; // Enable timer clock
   _driveBase->syncTimer = TIM4; // Set thw syncTimer to general timer 4
-  _driveBase->syncTimer->PSC = 0xDEADBEEF;
-  _driveBase->syncTimer->ARR = 0xDEADBEEF;
-  _driveBase->syncTimer->CCR1 = 0xDEADBEEF;
-  _driveBase->syncTimer->ARR = 0xDEADBEEF;
-  _driveBase->syncTimer->ARR = 0xDEADBEEF;
+  _driveBase->syncTimer->PSC = 1 - 400; // Want to run the counter at 2 kHz
+  _driveBase->syncTimer->ARR = 1 - 1000;  // Overrun event will trigger 1 kHz   
+  
+  // Enable interrupts for TIM4 and set its priority
+  NVIC->ISER[0] &= 1 << TIM4_IRQn;
+  NVIC->IP[TIM4_IRQn] = 0;  // lower number means higher priority
   
   // Enable the syncTimer
   _driveBase->syncTimer->CR1 = TIM_CR1_CEN;
+}
+
+/**
+ * Event handler for TIM4 (syncTimer).
+ * This function is called whenever there is an event on TIM4. The type of 
+ * even determines the action of the handler.
+ */
+void TIM4_IRQHandler(void) {
+  if((TIM4->SR & TIM_SR_UIF) != 0) {
+    
+  }
 }

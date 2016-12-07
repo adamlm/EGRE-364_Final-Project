@@ -59,4 +59,5 @@ void TIM4_IRQHandler(void);
  * This function basically determines if the motors need to step.
  */
 void motorUpdate(void);
+
 #endif

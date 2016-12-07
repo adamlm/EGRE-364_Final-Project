@@ -11,6 +11,9 @@
 #include "DriveBase.h"
 #include "stdint.h"
 
+
+static driveBase_t* driveBase;
+
 void initDriveBase(driveBase_t* _driveBase) {  
   initStepperMotor(&(_driveBase->leftMotor), GPIOC, GPIOB, 5, 1);
   initStepperMotor(&(_driveBase->rightMotor), GPIOB, GPIOB, 13, 15);
@@ -53,20 +56,21 @@ static void motorUpdate(void) {
 	uint8_t left_move = 1;
 	uint8_t right_dir = 1;
 	uint8_t left_dir = 1;
+	int i;
 	
 	if (left_move) {
-		set(&(driveBase->leftMotor), left_dir, 1);
+		set(&(driveBase->leftMotor),1, left_dir);
 	}
 	if (right_move) {
-		set(&(driveBase->rightMotor), right_dir, 1);
+		set(&(driveBase->rightMotor),1, right_dir);
 	}
 	
-	for(int i=0; i<200; i++);
+	for(i=0; i<200; i++);
 
 	if (left_move) {
-		set(&(driveBase->leftMotor), left_dir, 0);
+		set(&(driveBase->leftMotor),0, left_dir);
 	}
 	if (right_move) {
-		set(&(driveBase->rightMotor), right_dir, 0);
+		set(&(driveBase->rightMotor),0, right_dir);
 	}
 }

@@ -82,12 +82,12 @@
         <Book>
           <Number>0</Number>
           <Title>User Manual (STM32L476G-EVAL)</Title>
-          <Path>Z:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Boards\ST\STM32L476G-EVAL\Documentation\DM00155732.pdf</Path>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Boards\ST\STM32L476G-EVAL\Documentation\DM00155732.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
           <Title>Schematics (STM32L476G-EVAL)</Title>
-          <Path>Z:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Boards\ST\STM32L476G-EVAL\Documentation\MB1144B.pdf</Path>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\1.2.0\Boards\ST\STM32L476G-EVAL\Documentation\MB1144B.pdf</Path>
         </Book>
         <Book>
           <Number>2</Number>

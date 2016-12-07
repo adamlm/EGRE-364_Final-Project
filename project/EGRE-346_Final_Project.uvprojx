@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include;..\include\c</IncludePath>
+              <IncludePath>Z:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include;..\include\c;C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

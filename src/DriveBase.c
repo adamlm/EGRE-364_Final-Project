@@ -46,24 +46,24 @@ void TIM4_IRQHandler(void) {
 
 void motorUpdate(void) {
   
-	uint8_t right_move;
-	uint8_t left_move;
-	uint8_t right_dir;
-	uint8_t left_dir;
+	uint8_t right_move = 1;
+	uint8_t left_move = 1;
+	uint8_t right_dir = 1;
+	uint8_t left_dir = 1;
 	
 	if (left_move) {
-		set(&(_driveBase->leftMotor), left_dir, 1);
+		set(&(driveBase->leftMotor), left_dir, 1);
 	}
 	if (right_move) {
-		set(&(_driveBase->rightMotor), right_dir, 1);
+		set(&(driveBase->rightMotor), right_dir, 1);
 	}
 	
 	for(int i=0; i<200; i++);
 
 	if (left_move) {
-		set(&(_driveBase->leftMotor), left_dir, 0);
+		set(&(driveBase->leftMotor), left_dir, 0);
 	}
 	if (right_move) {
-		set(&(_driveBase->rightMotor), right_dir, 0);
+		set(&(driveBase->rightMotor), right_dir, 0);
 	}
 }

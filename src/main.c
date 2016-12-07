@@ -30,6 +30,7 @@ static driveBase_t driveBase;  // The drive base of the robot
 int main(void) {  
   robotInit();  // Initialize the robot
   
+  while(1);
   return 0;
 }
 

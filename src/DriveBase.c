@@ -25,7 +25,7 @@ static void initSyncTimer(driveBase_t* _driveBase) {
   _driveBase->syncTimer->PSC = 400 - 1; // Want to run the counter at 2 kHz
   _driveBase->syncTimer->ARR = 1000 - 1;  // Overrun event will trigger 1 kHz   
   
-  // Enable interrupts for TIM4 and set its priority
+  // Enable interrupt for TIM4 and set its priority
   NVIC->ISER[0] = 1 << TIM4_IRQn;
   NVIC->IP[TIM4_IRQn] = 0xFF;  // lower number means higher priority
   
@@ -33,11 +33,6 @@ static void initSyncTimer(driveBase_t* _driveBase) {
   _driveBase->syncTimer->CR1 = TIM_CR1_CEN;
 }
 
-/**
- * Event handler for TIM4 (syncTimer).
- * This function is called whenever there is an event on TIM4. The type of 
- * even determines the action of the handler.
- */
 void TIM4_IRQHandler(void) {
   if((TIM4->SR & TIM_SR_UIF) != 0) {
     motorUpdate();

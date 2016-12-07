@@ -9,7 +9,7 @@
 */
 
 #include "DriveBase.h"
-#include "stding.h"
+#include "stdint.h"
 
 void initDriveBase(driveBase_t* _driveBase) {  
   initStepperMotor(&(_driveBase->leftMotor), GPIOC, GPIOB, 5, 1);

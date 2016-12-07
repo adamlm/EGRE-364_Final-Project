@@ -409,6 +409,26 @@
               <FileType>5</FileType>
               <FilePath>..\include\c\Gpio.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\c\ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>SysTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\include\c\SysTimer.h</FilePath>
+            </File>
+            <File>
+              <FileName>distance_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\distance_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>reflectance_array.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\reflectance_array.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -443,6 +463,26 @@
               <FileName>Gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src\Gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>SysTimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\SysTimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>distance_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\distance_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>reflectance_array.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\reflectance_array.c</FilePath>
             </File>
           </Files>
         </Group>

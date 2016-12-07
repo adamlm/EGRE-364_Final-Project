@@ -45,4 +45,17 @@ void initDriveBase(driveBase_t* _driveBase);
  * @param _driveBase the drive base of the desired syncTimer
  */
 static void initSyncTimer(driveBase_t* _driveBase);
+
+/**
+ * Event handler for TIM4 (syncTimer).
+ * This function is called whenever there is an event on TIM4. The type of 
+ * even determines the action of the handler.
+ */
+void TIM4_IRQHandler(void);
+
+/**
+ * Updates the output of the motor.
+ * This function basically determines if the motors need to step.
+ */
+void motorUpdate(void);
 #endif

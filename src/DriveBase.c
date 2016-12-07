@@ -42,3 +42,7 @@ void TIM4_IRQHandler(void) {
     
   }
 }
+
+void motorUpdate(void) {
+  
+}

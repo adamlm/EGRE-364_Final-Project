@@ -12,16 +12,20 @@
 #include "stdint.h"
 #include "math.h"
 
+static driveBase_t* driveBase;  // Pointer to actual driveBase in Main.c
+static driveBaseState* state; // Pointer to actual driveBaseState in Main.c
 
-static driveBase_t* driveBase;
 int right_speed = -20, left_speed = 20;
 
-void initDriveBase(driveBase_t* _driveBase) {  
+void initDriveBase(driveBase_t* _driveBase, driveBaseState* _state) {  
+  driveBase = _driveBase;
+  state = _state;
+  
+  // Initialize both of the stepper motors
   initStepperMotor(&(_driveBase->leftMotor), GPIOC, GPIOB, 5, 1);
   initStepperMotor(&(_driveBase->rightMotor), GPIOB, GPIOB, 13, 15);
   
-  driveBase = _driveBase;
-  
+  // Initialize the motor synchornization timer
   initSyncTimer(_driveBase);
 }
 
@@ -35,7 +39,7 @@ static void initSyncTimer(driveBase_t* _driveBase) {
   // Enable interrupt for TIM4 and set its priority
   NVIC_EnableIRQ(TIM4_IRQn);
   NVIC_SetPriority(TIM4_IRQn,1);
-  _driveBase->syncTimer->DIER |= TIM_DIER_UIE;
+  _driveBase->syncTimer->DIER |= TIM_DIER_UIE;  // Enable the update event
   
   // Enable the syncTimer
   _driveBase->syncTimer->CR1 = TIM_CR1_CEN;
@@ -87,4 +91,8 @@ void motorUpdate(void) {
 	if (right_move) {
 		set(&(driveBase->rightMotor),0, right_dir);
 	}
+}
+
+void setState(driveBaseState* _state) {
+  *state = *_state;
 }

@@ -12,12 +12,17 @@
 #include "distance_sensor.h"
 #include "reflectance_array.h"
 #include "stm32l476xx.h"
+#include "RobotState.h"
 
 // Function prototypes
 static void robotInit(void);
 static void periphClockInit(void);
+static void mazePeriodic(void);
+static void linePeriodic(void);
+static void artPeriodic(void);
 
 // Declarations
+static enum robotState state;
 static driveBase_t driveBase;  // The drive base of the robot
 //  distanceSensor_t distanceSensor;  // The distance sensor on the robot
 
@@ -27,11 +32,23 @@ static driveBase_t driveBase;  // The drive base of the robot
  * All initiations are robot actions are originally called from this method.
  *
  */
-int main(void) {  
-  robotInit();  // Initialize the robot
-  
-  while(1);
-  return 0;
+int main(void) {
+  while(1) {
+    switch(state) {
+      case INIT : {
+        robotInit();  // Initialize the robot
+      }; break;
+      case MAZE : {
+        mazePeriodic(); // Perform maze-specific logic
+      }; break;
+      case LINE : {
+        linePeriodic(); // Perform line-specific logic
+      }; break;
+      case ART : {
+        artPeriodic();  // Perform art-specific logic
+      }; break;
+    }
+  }   
 }
 
 /**
@@ -52,4 +69,25 @@ static void periphClockInit(void) {
   RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN | RCC_AHB2ENR_GPIOBEN |
     RCC_AHB2ENR_GPIOCEN | RCC_AHB2ENR_GPIODEN | RCC_AHB2ENR_GPIOEEN | 
     RCC_AHB2ENR_GPIOFEN | RCC_AHB2ENR_GPIOGEN | RCC_AHB2ENR_GPIOHEN;
+}
+
+/**
+ * Performs the maze challenge specific logic.
+ */
+static void mazePeriodic(void) {
+  
+}
+
+/**
+ * Performs the line following challenge specific logic
+ */
+static void linePeriodic(void) {
+  
+}
+
+/**
+ * Performs the art challenge specific logic
+ */
+static void artPeriodic(void) {
+  
 }

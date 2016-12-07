@@ -19,6 +19,18 @@
 #include "StepperMotor.h"
 
 /**
+ * This is the enumeration for the driveBase states. These states control
+ * the direction of movement of the robot.
+ */
+typedef enum {
+  FORWARD = 0,
+  REVERSE = 1,
+  LEFT_TURN = 2,
+  RIGHT_TURN = 3,
+  STOP = 4
+} driveBaseState;
+
+/**
  * The structure for the drive base.
  * This structure contains the stepper motors that will be controlled in order
  * to drive the robot. 
@@ -33,8 +45,9 @@ typedef struct {
  * Initializes all of the members of the driveBase_t structure.
  *
  * @param _driveBase pointer to tthe drive base to initialize
+ * @param _state pointer to the state of the drive base
  */
-void initDriveBase(driveBase_t* _driveBase);
+void initDriveBase(driveBase_t* _driveBase, driveBaseState* _state);
 
 /**
  * Initializes the motor sync timer.
@@ -57,5 +70,13 @@ void TIM4_IRQHandler(void);
  * This function basically determines if the motors need to step.
  */
 void motorUpdate(void);
+
+/** 
+ * Sets the state of the drive base to determine the direction of motor
+ * rotation.
+ *
+ * @param _state the desired state of the driveBase
+ */
+void setState(driveBaseState* _state);
 
 #endif

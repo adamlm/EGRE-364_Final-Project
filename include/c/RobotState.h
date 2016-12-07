@@ -7,11 +7,14 @@
 *           and get the current state of the robot.
 */
 
+#ifndef ROBOT_STATE_H
+#define ROBOT_STATE_H
+
 /**
  * Enumeration for the robot states.
  *
  */
-public enum robotState {
+typedef enum robotState {
     INIT = 0,
     MAZE = 1,
     LINE = 2,
@@ -23,7 +26,7 @@ public enum robotState {
 *
 * @param _state desired state of the robot
 */
-public static void setState(robotState _state);
+static void setState(robotState _state);
 
 
 /**
@@ -31,4 +34,6 @@ public static void setState(robotState _state);
 *
 * @return current state of the robot
 */
-public static robotState getState();
+static robotState getState(void);
+
+#endif

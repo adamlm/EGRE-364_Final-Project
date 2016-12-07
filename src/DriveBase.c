@@ -9,6 +9,7 @@
 */
 
 #include "DriveBase.h"
+#include "stding.h"
 
 void initDriveBase(driveBase_t* _driveBase) {  
   initStepperMotor(&(_driveBase->leftMotor), GPIOC, GPIOB, 5, 1);
@@ -45,4 +46,24 @@ void TIM4_IRQHandler(void) {
 
 void motorUpdate(void) {
   
+	uint8_t right_move;
+	uint8_t left_move;
+	uint8_t right_dir;
+	uint8_t left_dir;
+	
+	if (left_move) {
+		set(&(_driveBase->leftMotor), left_dir, 1);
+	}
+	if (right_move) {
+		set(&(_driveBase->rightMotor), right_dir, 1);
+	}
+	
+	for(int i=0; i<200; i++);
+
+	if (left_move) {
+		set(&(_driveBase->leftMotor), left_dir, 0);
+	}
+	if (right_move) {
+		set(&(_driveBase->rightMotor), right_dir, 0);
+	}
 }

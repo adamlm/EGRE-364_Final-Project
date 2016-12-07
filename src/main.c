@@ -9,6 +9,8 @@
 */
 
 #include "DriveBase.h"
+#include "distance_sensor.h"
+#include "reflectance_array.h"
 #include "stm32l476xx.h"
 
 // Function prototypes
@@ -38,7 +40,8 @@ int main(void) {
 static void robotInit(void) {
   periphClockInit();  // Initialize the peripheral clocks
   initDriveBase(&driveBase);  // Initialize the drive base
-// initiDistanceSensor(&distanceSensor);  // Initialize the distance sensor    
+	distance_sensor_init();// Initialize the distance sensor   
+	reflectance_init();//initialize the reflectance sensors
 }
 
 /**

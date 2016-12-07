@@ -1,5 +1,6 @@
 #include "Gpio.h"
 #include <stdint.h>
+#include <SysTimer.h>
 
 uint8_t reflectance_read(void) {
 	//bits 3 downto 0 correspond to the leftmost downto the rightmost sensor
@@ -103,7 +104,7 @@ uint8_t reflectance_read(void) {
 		
 }
 
-void reflectance_Init(void){	
+void reflectance_init(void){	
 	
 	// Enable the clock for GPIOB
 	enableClock(RCC_AHB2ENR_GPIOEEN);

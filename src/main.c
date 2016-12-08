@@ -13,7 +13,6 @@
 #include "reflectance_array.h"
 #include "RobotState.h"
 #include "stm32l476xx.h"
-#include "SysTimer.h"
 
 // Function prototypes
 static void robotInit(void);
@@ -39,7 +38,7 @@ int main(void) {
     switch(state) {
       case INIT : {
         robotInit();  // Initialize the robot
-				state = LINE;
+        state = MAZE;
       }; break;
       case MAZE : {
         mazePeriodic(); // Perform maze-specific logic
@@ -59,7 +58,6 @@ int main(void) {
  * All robot components are initialized here. 
  */
 static void robotInit(void) {
-	SysTick_Init();
   periphClockInit();  // Initialize the peripheral clocks
   initDriveBase(&driveBase);  // Initialize the drive base
 	distance_sensor_init();// Initialize the distance sensor   
@@ -79,18 +77,14 @@ static void periphClockInit(void) {
  * Performs the maze challenge specific logic.
  */
 static void mazePeriodic(void) {
-  
+  setDriveState(FORWARD);
 }
 
 /**
  * Performs the line following challenge specific logic
  */
 static void linePeriodic(void) {
-  uint8_t reflectance_data = reflectance_read();
-	uint8_t outer_left = ~reflectance_data & 4 >> 3;
-	uint8_t inner_left = ~reflectance_data & 3 >> 2;
-	uint8_t inner_right = ~reflectance_data & 2 >> 1;
-	uint8_t outer_right = ~reflectance_data & 1;
+  
 }
 
 /**

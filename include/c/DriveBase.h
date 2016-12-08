@@ -23,11 +23,11 @@
  * the direction of movement of the robot.
  */
 typedef enum {
-  FORWARD = 0,
-  REVERSE = 1,
-  LEFT_TURN = 2,
-  RIGHT_TURN = 3,
-  STOP = 4
+  FORWARD = 0,  // The robot is moving forward
+  REVERSE = 1,  // The robot is moving backward
+  LEFT_TURN = 2,  // The robot is turning left
+  RIGHT_TURN = 3, // The robot is turning right
+  STOP = 4  // The robot is stopped  
 } driveBaseState;
 
 /**

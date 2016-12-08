@@ -78,6 +78,6 @@ void setRightMotorSpeed(int _speed);
  * @param _leftSpeed desired left motor speed
  * @param _rightSpeed desired right motor speed
  */
-void accelerateToSpeed(int _leftSspeed, int _rightSpeed);
+void accelerateToSpeed(int _leftSspeed, int _rightSpeed, int _delay);
 
 #endif

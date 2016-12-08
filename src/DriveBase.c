@@ -115,7 +115,7 @@ int getRightMotorSpeed(void) {
 	return right_speed;
 }
 
-void accelerateToSpeed(int _leftSspeed, int _rightSpeed) {
+void accelerateToSpeed(int _leftSspeed, int _rightSpeed, int _delay) {
   int currentLeftSpeed;
   int currentRightSpeed;
     
@@ -138,6 +138,6 @@ void accelerateToSpeed(int _leftSspeed, int _rightSpeed) {
     if(currentLeftSpeed == _leftSspeed && currentRightSpeed == _rightSpeed) {
       break;
     }  
-    delay(5);
+    delay(_delay);
   }
 }

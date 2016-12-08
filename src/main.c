@@ -152,19 +152,19 @@ if (!speed) {
 }
 else {
 	if (outer_left_reflectance == outer_right_reflectance && inner_left_reflectance == inner_right_reflectance){
-		accelerateToSpeed(500, 500, 5);
+		accelerateToSpeed(400, 400, 5);
 	}
 	else if (outer_left_reflectance && ~outer_right_reflectance) {
-		accelerateToSpeed(-20,100, 1);
+		accelerateToSpeed(-60,150, 1);
 	}
   else if (outer_right_reflectance && ~outer_left_reflectance) {
-		accelerateToSpeed(100,-20, 1);
+		accelerateToSpeed(150,-60, 1);
 	}
 	else if (inner_left_reflectance && ~inner_right_reflectance) {
-		accelerateToSpeed(100,180, 3);
+		accelerateToSpeed(200,250, 1);
 	}
 	else if (inner_right_reflectance && ~inner_left_reflectance) {
-		accelerateToSpeed(180,100, 3);
+		accelerateToSpeed(250,200, 1);
 	}	
 }
 	//delay(10);
@@ -175,7 +175,7 @@ else {
  */
 static void artPeriodic(void) {
   //accelerateToSpeed(300, 300, 2);
-	/*
+	
   static int i=0;
 	if (i<3){
   delay(100);
@@ -195,9 +195,9 @@ static void artPeriodic(void) {
 		//delay(400);
 				accelerateToSpeed(200,20, 5);
 	}
-	*/
+	
 ///////////////1  
-
+/*
 
   accelerateToSpeed(300, 300, 5);
   
@@ -207,7 +207,7 @@ static void artPeriodic(void) {
   
   delay(20);
   accelerateToSpeed(0,0, 2);
-	
+	*/
 }
 
 static void Dpad_init(void) {

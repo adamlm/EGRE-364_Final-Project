@@ -19,6 +19,18 @@
 #include "StepperMotor.h"
 
 /**
+ * This is the enumeration for the driveBase states. These states control
+ * the direction of movement of the robot.
+ */
+typedef enum {
+  FORWARD = 0,  // The robot is moving forward
+  REVERSE = 1,  // The robot is moving backward
+  LEFT_TURN = 2,  // The robot is turning left
+  RIGHT_TURN = 3, // The robot is turning right
+  STOP = 4  // The robot is stopped  
+} driveBaseState;
+
+/**
  * The structure for the drive base.
  * This structure contains the stepper motors that will be controlled in order
  * to drive the robot. 
@@ -56,20 +68,14 @@ void TIM4_IRQHandler(void);
  * Updates the output of the motor.
  * This function basically determines if the motors need to step.
  */
-static void motorUpdate(void);
+void motorUpdate(void);
 
-/**
- * Sets the speed of the left stepper motor.
+/** 
+ * Sets the state of the drive base to determine the direction of motor
+ * rotation.
  *
- * @param _speed desired speed of left motor
+ * @param _state the desired state of the driveBase
  */
-void setLeftMotorSpeed(uint8_t _speed);
-
-/**
- * Sets the speed of the right stepper motor.
- *
- * @param _speed desired speed of right motor
- */
-void setRightMotorSpeed(uint8_t _speed);
+void setState(driveBaseState* _state);
 
 #endif

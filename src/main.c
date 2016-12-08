@@ -77,7 +77,8 @@ static void periphClockInit(void) {
  * Performs the maze challenge specific logic.
  */
 static void mazePeriodic(void) {
-  setDriveState(FORWARD);
+    setLeftMotorSpeed(20);
+    setRightMotorSpeed(-20);
 }
 
 /**

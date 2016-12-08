@@ -14,11 +14,14 @@
 
 static driveBase_t* driveBase;  // Pointer to actual driveBase in Main.c
 
-static volatile int right_speed = -20; // Speed of the right motor (arbitrary unit)
-static volatile int left_speed = 20;  // Speed of the left motor (arbitrary unit)
+static volatile int right_speed; // Speed of the right motor (arbitrary unit)
+static volatile int left_speed;  // Speed of the left motor (arbitrary unit)
 
 void initDriveBase(driveBase_t* _driveBase) {  
   driveBase = _driveBase;
+  
+  right_speed = 0;
+  left_speed = 0;
   
   // Initialize both of the stepper motors
   initStepperMotor(&(_driveBase->leftMotor), GPIOC, GPIOB, 5, 1);

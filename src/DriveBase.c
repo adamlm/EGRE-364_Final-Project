@@ -13,9 +13,8 @@
 #include "math.h"
 
 static driveBase_t* driveBase;  // Pointer to actual driveBase in Main.c
-static driveBaseState* state; // Pointer to actual driveBaseState in Main.c
 
-static volatile int right_speed = 20; // Speed of the right motor (arbitrary unit)
+static volatile int right_speed = -20; // Speed of the right motor (arbitrary unit)
 static volatile int left_speed = 20;  // Speed of the left motor (arbitrary unit)
 
 void initDriveBase(driveBase_t* _driveBase) {  
@@ -52,13 +51,13 @@ void TIM4_IRQHandler(void) {
   }
 }
 
-void motorUpdate(void) {
+static void motorUpdate(void) {
   
 	uint8_t right_move = 0; // Whether or not the right motor should step
 	uint8_t left_move = 0;  // Whether or not the left motor should step
 
-  uint8_t leftDirection;
-  uint8_t rightDirection;
+  uint8_t leftDirection = 0;
+  uint8_t rightDirection = 1;
   
 	int i;  // Iterator for for-loop delay
 	
@@ -67,6 +66,9 @@ void motorUpdate(void) {
   // ticks, and the tick threshold determines the speed of the motors.  
 	static uint8_t right_count; // The number of right motor ticks
 	static uint8_t left_count;  // The number of left motor ticks
+  
+  if (right_speed < 0) rightDirection = 0;
+	if (left_speed < 0) leftDirection = 1;
   
   if (right_speed != 0 && right_count > 1000/abs(right_speed)) {
 		right_count = 0;
@@ -77,30 +79,6 @@ void motorUpdate(void) {
 		left_count = 0;
 		left_move = 1;
 	} else left_count++;
-	
-  switch(*state) {
-    case FORWARD : {
-      leftDirection = 0;
-      rightDirection = 1;
-    }; break;
-    
-    case REVERSE : {
-      leftDirection = 1;
-      rightDirection = 0;
-    }; break;
-    
-    case LEFT_TURN : {
-      leftDirection = 1;
-      rightDirection = 1;
-    }; break;
-    
-    case RIGHT_TURN : {
-      leftDirection = 0;
-      rightDirection = 0;
-    }; break;
-    
-    default : return;        
-  };    
          
 	if (left_move) {
 		set(&(driveBase->leftMotor),1, leftDirection);
@@ -119,6 +97,10 @@ void motorUpdate(void) {
 	}
 }
 
-void setState(driveBaseState* _state) {
-  *state = *_state;
+void setLeftMotorSpeed(uint8_t _speed) {
+  left_speed = _speed;
+}
+
+void setRightMotorSpeed(uint8_t _speed) {
+  right_speed = _speed;
 }

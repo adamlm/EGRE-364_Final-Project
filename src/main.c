@@ -38,6 +38,7 @@ int main(void) {
     switch(state) {
       case INIT : {
         robotInit();  // Initialize the robot
+        state = MAZE;
       }; break;
       case MAZE : {
         mazePeriodic(); // Perform maze-specific logic
@@ -76,7 +77,7 @@ static void periphClockInit(void) {
  * Performs the maze challenge specific logic.
  */
 static void mazePeriodic(void) {
-  
+  setDriveState(FORWARD);
 }
 
 /**

@@ -15,7 +15,8 @@
 static driveBase_t* driveBase;  // Pointer to actual driveBase in Main.c
 static driveBaseState* state; // Pointer to actual driveBaseState in Main.c
 
-int right_speed = -20, left_speed = 20;
+static volatile int right_speed = 20; // Speed of the right motor (arbitrary unit)
+static volatile int left_speed = 20;  // Speed of the left motor (arbitrary unit)
 
 void initDriveBase(driveBase_t* _driveBase) {  
   driveBase = _driveBase;
@@ -46,26 +47,28 @@ static void initSyncTimer(driveBase_t* _driveBase) {
 
 void TIM4_IRQHandler(void) {
   if((TIM4->SR & TIM_SR_UIF) != 0) {
-    motorUpdate();
+    TIM4->SR &= 1;  // Clear the update interrupt flag
+    motorUpdate();  // Update the motor outputs
   }
 }
 
 void motorUpdate(void) {
   
-	uint8_t right_move =0;
-	uint8_t left_move = 0;
-	uint8_t right_dir = 1;
-	uint8_t left_dir = 0;
-	int i;
+	uint8_t right_move = 0; // Whether or not the right motor should step
+	uint8_t left_move = 0;  // Whether or not the left motor should step
+
+  uint8_t leftDirection;
+  uint8_t rightDirection;
+  
+	int i;  // Iterator for for-loop delay
 	
-	static uint8_t right_count;
-	static uint8_t left_count;
-	
-	if (right_speed < 0) right_dir = 0;
-	if (left_speed < 0) left_dir = 1;
-	
-	
-	if (right_speed != 0 && right_count > 1000/abs(right_speed)) {
+  // The way the motor control works is by keeping track of how many ticks the
+  // motor has gone through without stepping. The motors move once every X
+  // ticks, and the tick threshold determines the speed of the motors.  
+	static uint8_t right_count; // The number of right motor ticks
+	static uint8_t left_count;  // The number of left motor ticks
+  
+  if (right_speed != 0 && right_count > 1000/abs(right_speed)) {
 		right_count = 0;
 		right_move = 1;
 	} else right_count++;
@@ -75,20 +78,44 @@ void motorUpdate(void) {
 		left_move = 1;
 	} else left_count++;
 	
+  switch(*state) {
+    case FORWARD : {
+      leftDirection = 0;
+      rightDirection = 1;
+    }; break;
+    
+    case REVERSE : {
+      leftDirection = 1;
+      rightDirection = 0;
+    }; break;
+    
+    case LEFT_TURN : {
+      leftDirection = 1;
+      rightDirection = 1;
+    }; break;
+    
+    case RIGHT_TURN : {
+      leftDirection = 0;
+      rightDirection = 0;
+    }; break;
+    
+    default : return;        
+  };    
+         
 	if (left_move) {
-		set(&(driveBase->leftMotor),1, left_dir);
+		set(&(driveBase->leftMotor),1, leftDirection);
 	}
 	if (right_move) {
-		set(&(driveBase->rightMotor),1, right_dir);
+		set(&(driveBase->rightMotor),1, rightDirection);
 	}
 	
 	if (left_move || right_move) for(i=0; i<10; i++);
 
 	if (left_move) {
-		set(&(driveBase->leftMotor),0, left_dir);
+		set(&(driveBase->leftMotor),0, leftDirection);
 	}
 	if (right_move) {
-		set(&(driveBase->rightMotor),0, right_dir);
+		set(&(driveBase->rightMotor),0, rightDirection);
 	}
 }
 

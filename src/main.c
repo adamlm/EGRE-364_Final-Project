@@ -13,6 +13,7 @@
 #include "reflectance_array.h"
 #include "RobotState.h"
 #include "stm32l476xx.h"
+#include "SysTimer.h"
 
 // Function prototypes
 static void robotInit(void);
@@ -58,6 +59,7 @@ int main(void) {
  * All robot components are initialized here. 
  */
 static void robotInit(void) {
+	SysTick_Init();
   periphClockInit();  // Initialize the peripheral clocks
   initDriveBase(&driveBase);  // Initialize the drive base
 	distance_sensor_init();// Initialize the distance sensor   
@@ -77,8 +79,8 @@ static void periphClockInit(void) {
  * Performs the maze challenge specific logic.
  */
 static void mazePeriodic(void) {
-    setLeftMotorSpeed(20);
-    setRightMotorSpeed(-20);
+    setLeftMotorSpeed(1000);
+    setRightMotorSpeed(1000);
 }
 
 /**

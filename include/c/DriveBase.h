@@ -63,13 +63,13 @@ static void motorUpdate(void);
  *
  * @param _speed desired speed of left motor
  */
-void setLeftMotorSpeed(uint8_t _speed);
+void setLeftMotorSpeed(int _speed);
 
 /**
  * Sets the speed of the right stepper motor.
  *
  * @param _speed desired speed of right motor
  */
-void setRightMotorSpeed(uint8_t _speed);
+void setRightMotorSpeed(int _speed);
 
 #endif

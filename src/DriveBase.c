@@ -11,6 +11,7 @@
 #include "DriveBase.h"
 #include "stdint.h"
 #include "math.h"
+#include "SysTimer.h"
 
 static driveBase_t* driveBase;  // Pointer to actual driveBase in Main.c
 
@@ -37,8 +38,8 @@ static void initSyncTimer(driveBase_t* _driveBase) {
   // Init the timer
   RCC->APB1ENR1 |= RCC_APB1ENR1_TIM4EN; // Enable timer clock
   _driveBase->syncTimer = TIM4; // Set thw syncTimer to general timer 4
-  _driveBase->syncTimer->PSC = 800 - 1; // Want to run the counter at 2 kHz
-  _driveBase->syncTimer->ARR = 1000 - 1;  // Overrun event will trigger 1 kHz   
+  _driveBase->syncTimer->PSC = 100 - 1; // Want to run the counter at 2 kHz
+  _driveBase->syncTimer->ARR = 10 - 1;  // Overrun event will trigger 1 kHz   
   
   // Enable interrupt for TIM4 and set its priority
   NVIC_EnableIRQ(TIM4_IRQn);
@@ -51,7 +52,7 @@ static void initSyncTimer(driveBase_t* _driveBase) {
 
 void TIM4_IRQHandler(void) {
   if((TIM4->SR & TIM_SR_UIF) != 0) {
-    TIM4->SR &= ~1;  // Clear the update interrupt flag
+    TIM4->SR &= ~TIM_SR_UIF;  // Clear the update interrupt flag
     motorUpdate();  // Update the motor outputs
   }
 }
@@ -69,8 +70,8 @@ static void motorUpdate(void) {
   // The way the motor control works is by keeping track of how many ticks the
   // motor has gone through without stepping. The motors move once every X
   // ticks, and the tick threshold determines the speed of the motors.  
-	static uint8_t right_count; // The number of right motor ticks
-	static uint8_t left_count;  // The number of left motor ticks
+	static uint32_t right_count; // The number of right motor ticks
+	static uint32_t left_count;  // The number of left motor ticks
   
   if (right_speed < 0) rightDirection = 0;
 	if (left_speed < 0) leftDirection = 1;
@@ -85,14 +86,17 @@ static void motorUpdate(void) {
 		left_move = 1;
 	} else left_count++;
          
+	//right_move = 1;
+	//left_move = 1;
+	
 	if (left_move) {
 		set(&(driveBase->leftMotor),1, leftDirection);
 	}
 	if (right_move) {
 		set(&(driveBase->rightMotor),1, rightDirection);
 	}
-	
-	if (left_move || right_move) for(i=0; i<10; i++);
+	//delay(2);
+	//if (left_move || right_move) for(i=0; i<100000; i++);
 
 	if (left_move) {
 		set(&(driveBase->leftMotor),0, leftDirection);
@@ -102,10 +106,18 @@ static void motorUpdate(void) {
 	}
 }
 
-void setLeftMotorSpeed(uint8_t _speed) {
+void setLeftMotorSpeed(int _speed) {
   left_speed = _speed;
 }
 
-void setRightMotorSpeed(uint8_t _speed) {
+void setRightMotorSpeed(int _speed) {
   right_speed = _speed;
+}
+
+int getLeftMotorSpeed(void) {
+	return left_speed;
+}
+
+int getRightMotorSpeed(void) {
+	return right_speed;
 }

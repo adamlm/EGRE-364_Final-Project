@@ -63,9 +63,7 @@ static void motorUpdate(void) {
 	uint8_t left_move = 0;  // Whether or not the left motor should step
 
   uint8_t leftDirection = 0;
-  uint8_t rightDirection = 1;
-  
-	int i;  // Iterator for for-loop delay
+  uint8_t rightDirection = 1;  
 	
   // The way the motor control works is by keeping track of how many ticks the
   // motor has gone through without stepping. The motors move once every X
@@ -84,10 +82,7 @@ static void motorUpdate(void) {
 	if (left_speed != 0 && left_count > 1000/abs(left_speed)) {
 		left_count = 0;
 		left_move = 1;
-	} else left_count++;
-         
-	//right_move = 1;
-	//left_move = 1;
+	} else left_count++;  
 	
 	if (left_move) {
 		set(&(driveBase->leftMotor),1, leftDirection);
@@ -95,8 +90,6 @@ static void motorUpdate(void) {
 	if (right_move) {
 		set(&(driveBase->rightMotor),1, rightDirection);
 	}
-	//delay(2);
-	//if (left_move || right_move) for(i=0; i<100000; i++);
 
 	if (left_move) {
 		set(&(driveBase->leftMotor),0, leftDirection);
@@ -120,4 +113,31 @@ int getLeftMotorSpeed(void) {
 
 int getRightMotorSpeed(void) {
 	return right_speed;
+}
+
+void accelerateToSpeed(int _leftSspeed, int _rightSpeed) {
+  int currentLeftSpeed;
+  int currentRightSpeed;
+    
+  while(1) {
+    currentLeftSpeed = getLeftMotorSpeed();
+    currentRightSpeed = getRightMotorSpeed();
+    
+    if(currentLeftSpeed > _leftSspeed) {
+      setLeftMotorSpeed(currentLeftSpeed - 10);
+    } else if(currentLeftSpeed < _leftSspeed) {
+      setLeftMotorSpeed(currentLeftSpeed + 10);
+    }
+    
+    if(currentRightSpeed > _rightSpeed) {
+      setRightMotorSpeed(currentRightSpeed - 10);
+    } else if(currentRightSpeed < _rightSpeed) {
+      setRightMotorSpeed(currentRightSpeed + 10);
+    }
+    
+    if(currentLeftSpeed == _leftSspeed && currentRightSpeed == _rightSpeed) {
+      break;
+    }  
+    delay(5);
+  }
 }

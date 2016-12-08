@@ -72,4 +72,12 @@ void setLeftMotorSpeed(int _speed);
  */
 void setRightMotorSpeed(int _speed);
 
+/**
+ * Inrementally increases the speed of the motors to specified speeds
+ *
+ * @param _leftSpeed desired left motor speed
+ * @param _rightSpeed desired right motor speed
+ */
+void accelerateToSpeed(int _leftSspeed, int _rightSpeed);
+
 #endif

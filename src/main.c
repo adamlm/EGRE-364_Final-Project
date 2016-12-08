@@ -39,7 +39,7 @@ int main(void) {
     switch(state) {
       case INIT : {
         robotInit();  // Initialize the robot
-        state = MAZE;
+        state = ART;
       }; break;
       case MAZE : {
         mazePeriodic(); // Perform maze-specific logic
@@ -94,5 +94,12 @@ static void linePeriodic(void) {
  * Performs the art challenge specific logic
  */
 static void artPeriodic(void) {
+  accelerateToSpeed(300, 300);
   
+  delay(800);
+  accelerateToSpeed(0,0);
+  accelerateToSpeed(100, -100);
+  
+  delay(555);
+  accelerateToSpeed(0,0);
 }

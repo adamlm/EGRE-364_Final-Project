@@ -10,13 +10,17 @@
 
 #include "DriveBase.h"
 #include "stdint.h"
-#include "math.h"
 
 static driveBase_t* driveBase;  // Pointer to actual driveBase in Main.c
 static driveBaseState* state; // Pointer to actual driveBaseState in Main.c
 
 static volatile int right_speed = 20; // Speed of the right motor (arbitrary unit)
 static volatile int left_speed = 20;  // Speed of the left motor (arbitrary unit)
+
+int abs (int arg) {
+	if (arg < 0) return -arg;
+	else return arg;
+}
 
 void initDriveBase(driveBase_t* _driveBase) {  
   driveBase = _driveBase;

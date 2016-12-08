@@ -17,6 +17,8 @@ static driveBase_t* driveBase;  // Pointer to actual driveBase in Main.c
 static volatile int right_speed; // Speed of the right motor (arbitrary unit)
 static volatile int left_speed;  // Speed of the left motor (arbitrary unit)
 
+int abs(int arg) {return (arg<0) ? -arg : arg;}
+
 void initDriveBase(driveBase_t* _driveBase) {  
   driveBase = _driveBase;
   
@@ -49,7 +51,7 @@ static void initSyncTimer(driveBase_t* _driveBase) {
 
 void TIM4_IRQHandler(void) {
   if((TIM4->SR & TIM_SR_UIF) != 0) {
-    TIM4->SR &= 1;  // Clear the update interrupt flag
+    TIM4->SR &= ~1;  // Clear the update interrupt flag
     motorUpdate();  // Update the motor outputs
   }
 }

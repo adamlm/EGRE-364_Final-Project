@@ -11,29 +11,13 @@
 #define ROBOT_STATE_H
 
 /**
- * Enumeration for the robot states.
- *
+ * Enumeration for the robot states. 
  */
-typedef enum robotState {
-    INIT = 0,
-    MAZE = 1,
-    LINE = 2,
-    ART = 3
-};
-
-/**
-* Sets the desired state of the robot
-*
-* @param _state desired state of the robot
-*/
-static void setState(robotState _state);
-
-
-/**
-* Gets the current state of the robot.
-*
-* @return current state of the robot
-*/
-static robotState getState(void);
+typedef enum {
+    INIT = 0, // Initialize the robot 
+    MAZE = 1, // Robot is performing the maze challenge
+    LINE = 2, // Robot is performing the line challenge
+    ART = 3   // Robot is performing the art challenge
+} robotState;
 
 #endif

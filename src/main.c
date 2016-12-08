@@ -11,8 +11,8 @@
 #include "DriveBase.h"
 #include "distance_sensor.h"
 #include "reflectance_array.h"
-#include "stm32l476xx.h"
 #include "RobotState.h"
+#include "stm32l476xx.h"
 
 // Function prototypes
 static void robotInit(void);
@@ -22,10 +22,9 @@ static void linePeriodic(void);
 static void artPeriodic(void);
 
 // Declarations
-static enum robotState state;
+static robotState state;
 static driveBase_t driveBase;  // The drive base of the robot
 //  distanceSensor_t distanceSensor;  // The distance sensor on the robot
-
 
 /**
  * This is the main entry point into the robot code.
@@ -33,6 +32,8 @@ static driveBase_t driveBase;  // The drive base of the robot
  *
  */
 int main(void) {
+  state = INIT;
+  
   while(1) {
     switch(state) {
       case INIT : {

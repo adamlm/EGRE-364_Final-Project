@@ -45,9 +45,8 @@ typedef struct {
  * Initializes all of the members of the driveBase_t structure.
  *
  * @param _driveBase pointer to tthe drive base to initialize
- * @param _state pointer to the state of the drive base
  */
-void initDriveBase(driveBase_t* _driveBase, driveBaseState* _state);
+void initDriveBase(driveBase_t* _driveBase);
 
 /**
  * Initializes the motor sync timer.

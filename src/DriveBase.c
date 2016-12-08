@@ -17,9 +17,8 @@ static driveBaseState* state; // Pointer to actual driveBaseState in Main.c
 
 int right_speed = -20, left_speed = 20;
 
-void initDriveBase(driveBase_t* _driveBase, driveBaseState* _state) {  
+void initDriveBase(driveBase_t* _driveBase) {  
   driveBase = _driveBase;
-  state = _state;
   
   // Initialize both of the stepper motors
   initStepperMotor(&(_driveBase->leftMotor), GPIOC, GPIOB, 5, 1);
